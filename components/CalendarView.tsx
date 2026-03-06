@@ -20,11 +20,15 @@ export function CalendarView({ events, onViewEvent }: { events: Event[]; onViewE
 
   const byDay: Record<number, Event[]> = {};
   events.forEach(ev => {
-    const d = new Date(ev.date);
-    if (d.getMonth() === month && d.getFullYear() === year) {
-      const day = d.getDate();
-      if (!byDay[day]) byDay[day] = [];
-      byDay[day].push(ev);
+    if (!ev.date) return;
+    // Parse YYYY-MM-DD directly to avoid timezone issues with new Date()
+    const parts = ev.date.split("-");
+    const evYear = parseInt(parts[0], 10);
+    const evMonth = parseInt(parts[1], 10) - 1; // months are 0-indexed
+    const evDay = parseInt(parts[2], 10);
+    if (evMonth === month && evYear === year) {
+      if (!byDay[evDay]) byDay[evDay] = [];
+      byDay[evDay].push(ev);
     }
   });
 
