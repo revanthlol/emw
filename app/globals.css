@@ -26,8 +26,8 @@
     --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
     --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
     --shadow-glow: 0 0 20px rgba(245, 158, 11, 0.15);
-    --font-sans: 'DM Sans', system-ui, sans-serif;
-    --font-display: 'Playfair Display', Georgia, serif;
+    --font-sans: 'Google Sans Flex', system-ui, sans-serif;
+    --font-display: 'Google Sans Flex', system-ui, sans-serif;
   }
 
   * { box-sizing: border-box; }

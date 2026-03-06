@@ -22,7 +22,7 @@ A modern, full-featured event management dashboard built with **Next.js 16**, **
 - ✨ **Framer Motion Animations** — Page transitions, staggered card entrances, animated progress bars, spring-physics toast notifications
 - 🎯 **layoutId Active Indicator** — Sidebar nav indicator smoothly slides between items
 - 📱 **Responsive Layout** — Fixed sidebar with scrollable content area
-- 🖋️ **Typography** — Playfair Display (headings) + DM Sans (body) from Google Fonts
+- 🖋️ **Typography** — Google Sans Flex from Google Fonts
 
 ### Technical
 - 💾 **LocalStorage Persistence** — All event data persists across sessions (no backend required)

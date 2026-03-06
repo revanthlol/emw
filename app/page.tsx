@@ -132,7 +132,7 @@ export default function App() {
   if (!mounted) return null;
 
   return (
-    <div style={{ minHeight: "100vh", background: "var(--bg-base)", fontFamily: "'DM Sans', sans-serif" }}>
+    <div style={{ minHeight: "100vh", background: "var(--bg-base)", fontFamily: "'Google Sans Flex', system-ui, sans-serif" }}>
       <Sidebar active={view} setActive={setView} />
 
       <main style={{ marginLeft: 232, padding: "36px 44px", minHeight: "100vh" }}>
