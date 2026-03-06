@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --bg-base: #06090F;
+    --bg-elevated: #0C1222;
+    --bg-card: #111827;
+    --bg-card-hover: #162033;
+    --bg-glass: rgba(17, 24, 39, 0.6);
+    --bg-glass-heavy: rgba(17, 24, 39, 0.85);
+    --border: rgba(255,255,255,0.06);
+    --border-subtle: rgba(255,255,255,0.04);
+    --border-hover: rgba(255,255,255,0.12);
+    --border-glow: rgba(245, 158, 11, 0.3);
+    --text-primary: #F1F5F9;
+    --text-secondary: #94A3B8;
+    --text-muted: #475569;
+    --text-dim: #334155;
+    --accent-gold: #F59E0B;
+    --accent-amber: #FBBF24;
+    --accent-red: #EF4444;
+    --accent-blue: #3B82F6;
+    --accent-purple: #8B5CF6;
+    --accent-emerald: #10B981;
+    --shadow-sm: 0 2px 8px rgba(0,0,0,0.3);
+    --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+    --shadow-glow: 0 0 20px rgba(245, 158, 11, 0.15);
+    --font-sans: 'DM Sans', system-ui, sans-serif;
+    --font-display: 'Playfair Display', Georgia, serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+}
+
+/* ─── Glassmorphism ────────────────────────────────────────────────────── */
+.glass-card {
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 41, 59, 0.5));
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-card:hover {
+  border-color: var(--border-hover);
+}
+
+.glass-sidebar {
+  background: linear-gradient(180deg, rgba(6, 9, 15, 0.98), rgba(12, 18, 34, 0.95));
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border-right: 1px solid var(--border);
+}
+
+/* ─── Glow Effect ──────────────────────────────────────────────────────── */
+.glow-gold { box-shadow: 0 0 24px rgba(245, 158, 11, 0.12), inset 0 1px 0 rgba(255,255,255,0.05); }
+.glow-border { border-color: var(--border-glow) !important; }
+.text-gradient {
+  background: linear-gradient(135deg, #F59E0B, #EF4444);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Scrollbar ────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
+
+/* Selection */
+::selection { background: rgba(245, 158, 11, 0.3); color: white; }
+
+/* ─── Shimmer Animation ───────────────────────────────────────────────── */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+  background-size: 200% 100%;
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+/* ─── Pulse Glow ───────────────────────────────────────────────────────── */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 8px rgba(245, 158, 11, 0.1); }
+  50% { box-shadow: 0 0 20px rgba(245, 158, 11, 0.25); }
+}
+
+/* ─── Kanban ───────────────────────────────────────────────────────────── */
+.kanban-col-over {
+  outline: 2px solid rgba(245, 158, 11, 0.4);
+  outline-offset: 2px;
+  background: rgba(245, 158, 11, 0.03) !important;
+}
+.drag-ghost { opacity: 0.4; transform: rotate(2deg); }
